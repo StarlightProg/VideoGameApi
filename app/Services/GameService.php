@@ -14,14 +14,21 @@ class GameService
             "company" => $data["company"],
         ]);
 
-        $game->genres()->attach($data['genres']);
+        if(isset($data['genres'])){
+            $game->genres()->attach($data['genres']);
+        }
 
         return $game;
     }
 
     public function update($data, $game)
     {
-        $game->fill($data)->save();
+        $game->update($data);
+
+        if(isset($data['genres'])){
+            $game->genres()->sync($data['genres']);
+        }
+
         return $game;
     }
 
@@ -33,6 +40,7 @@ class GameService
     public function findByGenre($genre_name)
     {
         $genre = Genre::where('genre_name', $genre_name)->firstOrFail();
+        
         return $genre->games()->get();
     }
 }

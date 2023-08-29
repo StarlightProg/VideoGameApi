@@ -32,7 +32,7 @@ class GameController extends Controller
     public function store(GameRequest $request)
     {
         $game = $this->game_service->store($request->validated());
-
+        
         return new GameResource($game);
     }
 

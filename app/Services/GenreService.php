@@ -12,14 +12,13 @@ class GenreService
             "genre_name" => $data["genre_name"],
         ]);
 
-        $genre->genres()->attach($data['genres']);
-
         return $genre;
     }
 
     public function update($data, $genre)
     {
-        $genre->fill($data)->save();
+        $genre->update($data);
+        
         return $genre;
     }
 
