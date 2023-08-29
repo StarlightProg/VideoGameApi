@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\GameController;
-use App\Http\Controllers\Api\GenreController;
+use App\Http\Controllers\Api\v1\GameController;
+use App\Http\Controllers\Api\v1\GenreController;
 
 /*
 |--------------------------------------------------------------------------
