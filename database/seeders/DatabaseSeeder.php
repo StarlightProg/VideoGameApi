@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Game;
 use App\Models\Genre;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,25 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
-
-        $genre_arr = ['Action', 'Adventure', 'RPG', 'Simulation', 'Strategy', 'Sports'];
-
         Genre::insert([
-            ['genre_name' => 'Action'],
-            ['genre_name' => 'Adventure'],
-            ['genre_name' => 'RPG'],
-            ['genre_name' => 'Simulation'],
-            ['genre_name' => 'Strategy'],
-            ['genre_name' => 'Sports'],
+            ['genre_name' => 'Action', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['genre_name' => 'Adventure', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['genre_name' => 'RPG', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['genre_name' => 'Simulation', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['genre_name' => 'Strategy', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['genre_name' => 'Sports', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
-
-        // DB::table('body_skills')->insert([
-        //     [ 'skill' => 'wiggle' ],
-        //     [ 'skill' => 'smooth' ],
-        //     [ 'skill' => 'hip' ],
-        //     [ 'skill' => 'twist' ],
-        //     [ 'skill' => 'rhytm' ]
-        // ]);
 
         Game::factory(10)->create();
 

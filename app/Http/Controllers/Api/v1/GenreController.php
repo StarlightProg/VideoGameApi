@@ -59,6 +59,10 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
+        if(count($genre->games()->get()) > 0){
+            return response()->json(['error' => 'Жанр не может быть удален, поскольку с ним есть связанные игры'], 422);
+        }
+        
         $this->genre_service->delete($genre);
 
         return response(null, Response::HTTP_NO_CONTENT);
